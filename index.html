@@ -1,0 +1,2130 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Гарант Климат — продажа, установка и обслуживание кондиционеров, сплит-систем и газовых котлов в Волжском."
+    >
+
+    <meta name="theme-color" content="#f8fafc">
+
+    <title>Гарант Климат — климатическая техника с установкой в Волжском</title>
+
+    <!-- Шрифты -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: "#f0f9ff",
+                            100: "#e0f2fe",
+                            200: "#bae6fd",
+                            300: "#7dd3fc",
+                            400: "#38bdf8",
+                            500: "#0ea5e9",
+                            600: "#0284c7",
+                            700: "#0369a1",
+                            800: "#075985",
+                            900: "#0c4a6e"
+                        }
+                    },
+                    fontFamily: {
+                        sans: ["Manrope", "sans-serif"],
+                        mono: ["IBM Plex Mono", "monospace"]
+                    },
+                    boxShadow: {
+                        soft: "0 20px 60px rgba(15, 23, 42, 0.08)",
+                        card: "0 14px 45px rgba(14, 165, 233, 0.10)"
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- Иконки -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --brand: #0ea5e9;
+            --brand-dark: #0c4a6e;
+            --text: #0f172a;
+            --muted: #64748b;
+            --surface: #ffffff;
+            --background: #f8fafc;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 92px;
+        }
+
+        body {
+            min-width: 320px;
+            margin: 0;
+            overflow-x: hidden;
+            color: var(--text);
+            background:
+                radial-gradient(circle at 90% 4%, rgba(14, 165, 233, 0.12), transparent 28rem),
+                radial-gradient(circle at 5% 35%, rgba(125, 211, 252, 0.10), transparent 25rem),
+                #f8fafc;
+            font-family: "Manrope", sans-serif;
+        }
+
+        body.menu-open,
+        body.modal-open {
+            overflow: hidden;
+        }
+
+        ::selection {
+            color: white;
+            background: #0284c7;
+        }
+
+        a,
+        button,
+        input,
+        select,
+        textarea {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        :focus-visible {
+            outline: 3px solid rgba(14, 165, 233, 0.45);
+            outline-offset: 3px;
+        }
+
+        .page-grid {
+            position: fixed;
+            z-index: -2;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.32;
+            background-image:
+                linear-gradient(rgba(14, 165, 233, 0.045) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(14, 165, 233, 0.045) 1px, transparent 1px);
+            background-size: 72px 72px;
+            mask-image: linear-gradient(to bottom, black, transparent 85%);
+        }
+
+        .header-shell {
+            background: rgba(255, 255, 255, 0.82);
+            border: 1px solid rgba(148, 163, 184, 0.22);
+            box-shadow: 0 10px 40px rgba(15, 23, 42, 0.07);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+
+        .glass-card {
+            position: relative;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.82);
+            border: 1px solid rgba(148, 163, 184, 0.20);
+            box-shadow: 0 18px 60px rgba(15, 23, 42, 0.07);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .card-hover {
+            transition:
+                transform 350ms ease,
+                border-color 350ms ease,
+                box-shadow 350ms ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-7px);
+            border-color: rgba(14, 165, 233, 0.35);
+            box-shadow: 0 24px 65px rgba(14, 165, 233, 0.13);
+        }
+
+        .primary-button {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            color: white;
+            background: linear-gradient(100deg, #0284c7, #0ea5e9);
+            box-shadow: 0 14px 34px rgba(14, 165, 233, 0.25);
+            transition:
+                transform 280ms ease,
+                box-shadow 280ms ease;
+        }
+
+        .primary-button::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            top: -120%;
+            left: -45%;
+            width: 35%;
+            height: 340%;
+            opacity: 0.7;
+            transform: rotate(24deg);
+            background: linear-gradient(
+                to right,
+                transparent,
+                rgba(255, 255, 255, 0.75),
+                transparent
+            );
+            transition: left 600ms ease;
+        }
+
+        .primary-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 45px rgba(14, 165, 233, 0.35);
+        }
+
+        .primary-button:hover::before {
+            left: 125%;
+        }
+
+        .secondary-button {
+            color: #0c4a6e;
+            background: rgba(255, 255, 255, 0.68);
+            border: 1px solid rgba(14, 165, 233, 0.22);
+            transition:
+                transform 280ms ease,
+                border-color 280ms ease,
+                background-color 280ms ease;
+        }
+
+        .secondary-button:hover {
+            transform: translateY(-3px);
+            border-color: rgba(14, 165, 233, 0.55);
+            background: white;
+        }
+
+        .gradient-text {
+            color: transparent;
+            background: linear-gradient(100deg, #0c4a6e, #0ea5e9 60%, #38bdf8);
+            background-clip: text;
+            -webkit-background-clip: text;
+        }
+
+        .hero-visual {
+            min-height: 570px;
+            background:
+                radial-gradient(circle at 80% 10%, rgba(56, 189, 248, 0.30), transparent 35%),
+                linear-gradient(145deg, #e0f2fe, #f8fafc);
+        }
+
+        .image-wrap {
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 70% 20%, rgba(14, 165, 233, 0.16), transparent 30%),
+                linear-gradient(145deg, #e2e8f0, #f8fafc);
+        }
+
+        .image-wrap img {
+            position: absolute;
+            z-index: 2;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 700ms cubic-bezier(.2, .7, .2, 1);
+        }
+
+        .image-wrap:hover img {
+            transform: scale(1.045);
+        }
+
+        .image-placeholder {
+            position: absolute;
+            z-index: 1;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+            color: #64748b;
+            text-align: center;
+        }
+
+        .image-placeholder strong {
+            display: block;
+            margin-top: 12px;
+            color: #0369a1;
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 12px;
+        }
+
+        .image-placeholder span {
+            display: block;
+            margin-top: 6px;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .image-placeholder.is-hidden {
+            display: none;
+        }
+
+        .product-image {
+            position: relative;
+            min-height: 245px;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 50% 30%, rgba(56, 189, 248, 0.18), transparent 38%),
+                linear-gradient(145deg, #f8fafc, #e2e8f0);
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.06);
+        }
+
+        .product-card .product-image img {
+            transition: transform 650ms cubic-bezier(.2, .7, .2, 1);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition:
+                opacity 750ms ease,
+                transform 750ms ease;
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        .field {
+            width: 100%;
+            color: #0f172a;
+            background: white;
+            border: 1px solid #dbe5ef;
+            transition:
+                border-color 250ms ease,
+                box-shadow 250ms ease;
+        }
+
+        .field::placeholder {
+            color: #94a3b8;
+        }
+
+        .field:focus {
+            outline: none;
+            border-color: #0ea5e9;
+            box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.10);
+        }
+
+        .floating-card {
+            animation: float-card 5s ease-in-out infinite;
+        }
+
+        @keyframes float-card {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-9px);
+            }
+        }
+
+        .progress-line {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-line::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -40%;
+            width: 30%;
+            height: 100%;
+            background: linear-gradient(
+                to right,
+                transparent,
+                rgba(255, 255, 255, 0.85),
+                transparent
+            );
+            animation: progress-shine 3.2s ease-in-out infinite;
+        }
+
+        @keyframes progress-shine {
+            0%,
+            20% {
+                left: -40%;
+            }
+
+            80%,
+            100% {
+                left: 120%;
+            }
+        }
+
+        .modal-backdrop {
+            background: rgba(15, 23, 42, 0.55);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .toast {
+            transform: translateY(24px);
+            opacity: 0;
+            pointer-events: none;
+            transition:
+                transform 300ms ease,
+                opacity 300ms ease;
+        }
+
+        .toast.is-visible {
+            transform: none;
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        @media (max-width: 767px) {
+            .hero-visual {
+                min-height: 450px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900 antialiased">
+    <div class="page-grid" aria-hidden="true"></div>
+
+    <!-- =====================================================
+         НАСТРОЙКИ ПЕРЕД ПУБЛИКАЦИЕЙ
+
+         1. Замените номер 8 (800) 250-XX-XX.
+         2. Замените ссылки WhatsApp, Telegram, VK и YouTube.
+         3. Проверьте график работы.
+         4. Проверьте все цены и характеристики.
+         5. Подтвердите заявления о гарантии, рассрочке,
+            официальном дилерстве и сроках монтажа.
+    ====================================================== -->
+
+    <!-- HEADER -->
+    <header class="fixed left-0 right-0 top-0 z-50 px-3 pt-3 sm:px-5">
+        <div class="header-shell mx-auto flex max-w-7xl items-center justify-between rounded-2xl px-4 py-3">
+            <a href="#home" class="group flex items-center gap-3" aria-label="Гарант Климат">
+                <span class="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 text-white shadow-lg shadow-sky-500/20">
+                    <i data-lucide="snowflake" class="h-6 w-6 transition-transform duration-500 group-hover:rotate-90"></i>
+                </span>
+
+                <span>
+                    <span class="block text-sm font-extrabold tracking-[-0.02em] sm:text-base">
+                        Гарант Климат
+                    </span>
+
+                    <span class="mt-0.5 block text-[9px] uppercase tracking-[0.16em] text-slate-400">
+                        Климат в доме и офисе
+                    </span>
+                </span>
+            </a>
+
+            <nav class="hidden items-center gap-7 text-sm font-semibold text-slate-500 lg:flex" aria-label="Навигация">
+                <a href="#catalog" class="transition hover:text-brand-600">Каталог</a>
+                <a href="#services" class="transition hover:text-brand-600">Услуги</a>
+                <a href="#about" class="transition hover:text-brand-600">О компании</a>
+                <a href="#reviews" class="transition hover:text-brand-600">Отзывы</a>
+                <a href="#contacts" class="transition hover:text-brand-600">Контакты</a>
+            </nav>
+
+            <div class="flex items-center gap-2">
+                <button
+                    type="button"
+                    data-open-request="Консультация с сайта"
+                    class="primary-button hidden items-center gap-2 rounded-xl px-4 py-3 text-sm font-bold sm:inline-flex"
+                >
+                    <i data-lucide="message-circle" class="h-4 w-4"></i>
+                    Оставить заявку
+                </button>
+
+                <button
+                    id="menuButton"
+                    type="button"
+                    class="grid h-11 w-11 place-items-center rounded-xl border border-slate-200 bg-white text-slate-700 lg:hidden"
+                    aria-label="Открыть меню"
+                    aria-expanded="false"
+                    aria-controls="mobileMenu"
+                >
+                    <i data-lucide="menu" class="h-5 w-5"></i>
+                </button>
+            </div>
+        </div>
+
+        <div
+            id="mobileMenu"
+            class="header-shell mx-auto mt-2 hidden max-w-7xl rounded-2xl p-3 lg:hidden"
+        >
+            <nav class="grid gap-1 text-sm font-semibold">
+                <a href="#catalog" class="mobile-link rounded-xl px-4 py-3 hover:bg-brand-50">Каталог</a>
+                <a href="#services" class="mobile-link rounded-xl px-4 py-3 hover:bg-brand-50">Услуги</a>
+                <a href="#about" class="mobile-link rounded-xl px-4 py-3 hover:bg-brand-50">О компании</a>
+                <a href="#reviews" class="mobile-link rounded-xl px-4 py-3 hover:bg-brand-50">Отзывы</a>
+                <a href="#contacts" class="mobile-link rounded-xl px-4 py-3 hover:bg-brand-50">Контакты</a>
+
+                <button
+                    type="button"
+                    data-open-request="Заявка из мобильного меню"
+                    class="primary-button mt-2 flex items-center justify-center gap-2 rounded-xl px-4 py-3 font-bold"
+                >
+                    <i data-lucide="message-circle" class="h-4 w-4"></i>
+                    Оставить заявку
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section id="home" class="relative overflow-hidden px-5 pb-20 pt-32 sm:px-8 sm:pt-40 lg:pb-28">
+            <div class="absolute right-[8%] top-24 -z-10 h-72 w-72 rounded-full bg-sky-300/20 blur-[100px]"></div>
+            <div class="absolute bottom-0 left-[5%] -z-10 h-64 w-64 rounded-full bg-blue-200/20 blur-[100px]"></div>
+
+            <div class="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-[1.04fr_.96fr]">
+                <div>
+                    <div class="reveal inline-flex items-center gap-2 rounded-full border border-brand-200 bg-white/75 px-3.5 py-2 text-xs font-bold text-brand-700 shadow-sm">
+                        <span class="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_12px_rgba(16,185,129,.6)]"></span>
+                        Продажа · монтаж · обслуживание
+                    </div>
+
+                    <h1 class="reveal mt-7 max-w-4xl text-[clamp(2.8rem,6.8vw,6.2rem)] font-extrabold leading-[0.96] tracking-[-0.065em]">
+                        Климатическая техника
+                        <span class="gradient-text">с установкой под ключ</span>
+                    </h1>
+
+                    <p class="reveal mt-7 max-w-2xl text-base leading-8 text-slate-500 sm:text-lg">
+                        Подберём кондиционер, сплит-систему или газовый котёл под ваше помещение,
+                        бюджет и задачи. Организуем установку и дальнейшее обслуживание в Волжском.
+                    </p>
+
+                    <!--
+                        В исходном промте было «более 15 лет на рынке».
+                        Добавьте это утверждение только после подтверждения.
+                    -->
+
+                    <div class="reveal mt-9 flex flex-col gap-3 sm:flex-row">
+                        <a
+                            href="#calculator"
+                            class="primary-button inline-flex items-center justify-center gap-3 rounded-2xl px-6 py-4 text-sm font-extrabold"
+                        >
+                            Подобрать кондиционер
+                            <i data-lucide="arrow-down" class="h-4 w-4"></i>
+                        </a>
+
+                        <button
+                            type="button"
+                            data-open-request="Бесплатная консультация"
+                            class="secondary-button inline-flex items-center justify-center gap-3 rounded-2xl px-6 py-4 text-sm font-extrabold"
+                        >
+                            <i data-lucide="headphones" class="h-5 w-5"></i>
+                            Бесплатная консультация
+                        </button>
+                    </div>
+
+                    <div class="reveal mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
+                        <div class="rounded-2xl border border-slate-200/80 bg-white/65 p-4">
+                            <i data-lucide="ruler" class="h-5 w-5 text-brand-600"></i>
+                            <p class="mt-3 text-sm font-extrabold">Замер</p>
+                            <p class="mt-1 text-xs text-slate-400">Уточнить условия</p>
+                        </div>
+
+                        <div class="rounded-2xl border border-slate-200/80 bg-white/65 p-4">
+                            <i data-lucide="shield-check" class="h-5 w-5 text-brand-600"></i>
+                            <p class="mt-3 text-sm font-extrabold">Гарантия</p>
+                            <p class="mt-1 text-xs text-slate-400">До 3 лет*</p>
+                        </div>
+
+                        <div class="rounded-2xl border border-slate-200/80 bg-white/65 p-4">
+                            <i data-lucide="wrench" class="h-5 w-5 text-brand-600"></i>
+                            <p class="mt-3 text-sm font-extrabold">Монтаж</p>
+                            <p class="mt-1 text-xs text-slate-400">Своими специалистами*</p>
+                        </div>
+
+                        <div class="rounded-2xl border border-slate-200/80 bg-white/65 p-4">
+                            <i data-lucide="credit-card" class="h-5 w-5 text-brand-600"></i>
+                            <p class="mt-3 text-sm font-extrabold">Рассрочка</p>
+                            <p class="mt-1 text-xs text-slate-400">Уточнить условия*</p>
+                        </div>
+                    </div>
+
+                    <p class="reveal mt-4 text-[11px] leading-5 text-slate-400">
+                        * Условия гарантии, монтажа, замера и рассрочки необходимо подтвердить перед публикацией.
+                    </p>
+                </div>
+
+                <div class="reveal relative">
+                    <div class="absolute -inset-8 -z-10 rounded-full bg-brand-300/20 blur-[90px]"></div>
+
+                    <!-- Добавьте images/hero-ac.jpg -->
+                    <div class="hero-visual image-wrap rounded-[32px] border border-white shadow-soft">
+                        <img
+                            src="images/hero-ac.jpg"
+                            alt="Кондиционер в современном интерьере"
+                            data-image
+                        >
+
+                        <div class="image-placeholder">
+                            <div>
+                                <span class="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-white text-brand-600 shadow-md">
+                                    <i data-lucide="image" class="h-7 w-7"></i>
+                                </span>
+                                <strong>images/hero-ac.jpg</strong>
+                                <span>Добавьте широкое фото кондиционера в интерьере</span>
+                            </div>
+                        </div>
+
+                        <div class="absolute inset-x-5 bottom-5 z-10 rounded-2xl border border-white/60 bg-white/85 p-5 shadow-soft backdrop-blur-xl sm:inset-x-7 sm:bottom-7">
+                            <div class="flex items-center justify-between gap-4">
+                                <div>
+                                    <p class="font-mono text-[10px] uppercase tracking-[0.16em] text-brand-700">
+                                        Индивидуальный подбор
+                                    </p>
+
+                                    <p class="mt-2 text-xl font-extrabold">
+                                        Под параметры помещения
+                                    </p>
+                                </div>
+
+                                <span class="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-brand-500 text-white">
+                                    <i data-lucide="sliders-horizontal" class="h-6 w-6"></i>
+                                </span>
+                            </div>
+
+                            <div class="mt-5 h-2 overflow-hidden rounded-full bg-slate-100">
+                                <div class="progress-line h-full w-[82%] rounded-full bg-gradient-to-r from-brand-600 to-brand-300"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="floating-card absolute -left-3 top-10 z-20 hidden rounded-2xl border border-white bg-white/90 p-4 shadow-soft backdrop-blur-xl sm:block">
+                        <div class="flex items-center gap-3">
+                            <span class="grid h-10 w-10 place-items-center rounded-xl bg-emerald-50 text-emerald-600">
+                                <i data-lucide="thermometer-snowflake" class="h-5 w-5"></i>
+                            </span>
+
+                            <div>
+                                <p class="text-xs text-slate-400">Комфортная температура</p>
+                                <p class="mt-1 font-mono text-sm font-semibold">22°C</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- БРЕНДЫ -->
+        <section class="border-y border-slate-200/70 bg-white/55 px-5 py-7 sm:px-8">
+            <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-10 gap-y-5 font-mono text-xs font-semibold uppercase tracking-[0.16em] text-slate-400 sm:justify-between">
+                <span>Midea</span>
+                <span>Toshiba</span>
+                <span>Daichi</span>
+                <span>CENTEK</span>
+                <span>LANZKRAFT</span>
+                <span>DANTEX</span>
+            </div>
+        </section>
+
+        <!-- КАТАЛОГ -->
+        <section id="catalog" class="px-5 py-24 sm:px-8 lg:py-32">
+            <div class="mx-auto max-w-7xl">
+                <div class="reveal flex flex-col justify-between gap-7 lg:flex-row lg:items-end">
+                    <div class="max-w-3xl">
+                        <span class="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-brand-600">
+                            Каталог
+                        </span>
+
+                        <h2 class="mt-5 text-4xl font-extrabold leading-tight tracking-[-0.055em] sm:text-6xl">
+                            Популярные модели
+                            <span class="text-slate-300">для дома и офиса</span>
+                        </h2>
+                    </div>
+
+                    <p class="max-w-md text-sm leading-7 text-slate-500">
+                        Указанные цены и характеристики используются для демонстрации.
+                        Перед запуском сайта синхронизируйте их с актуальной витриной магазина.
+                    </p>
+                </div>
+
+                <div class="mt-14 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+                    <!-- MIDEA -->
+                    <article class="product-card glass-card card-hover reveal flex flex-col rounded-3xl">
+                        <div class="product-image image-wrap">
+                            <img
+                                src="images/product-midea.jpg"
+                                alt="Midea Primary MSAG3-07HRN8"
+                                data-image
+                            >
+
+                            <div class="image-placeholder">
+                                <div>
+                                    <i data-lucide="image" class="mx-auto h-9 w-9 text-brand-500"></i>
+                                    <strong>images/product-midea.jpg</strong>
+                                    <span>Фото Midea Primary</span>
+                                </div>
+                            </div>
+
+                            <span class="absolute left-4 top-4 z-10 rounded-full bg-brand-600 px-3 py-1.5 text-xs font-bold text-white">
+                                Популярное
+                            </span>
+                        </div>
+
+                        <div class="flex flex-1 flex-col p-6">
+                            <p class="font-mono text-[10px] uppercase tracking-[0.16em] text-brand-600">
+                                MIDEA / SPLIT SYSTEM
+                            </p>
+
+                            <h3 class="mt-3 text-xl font-extrabold">
+                                Midea Primary MSAG3-07HRN8
+                            </h3>
+
+                            <ul class="mt-5 space-y-2 text-sm text-slate-500">
+                                <li class="flex gap-2">
+                                    <i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-emerald-500"></i>
+                                    Энергоэффективность класса A
+                                </li>
+                                <li class="flex gap-2">
+                                    <i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-emerald-500"></i>
+                                    Возможность Wi-Fi управления*
+                                </li>
+                            </ul>
+
+                            <div class="mt-auto flex items-end justify-between gap-4 pt-7">
+                                <div>
+                                    <p class="text-xs text-slate-400">Стоимость</p>
+                                    <p class="mt-1 font-mono text-xl font-semibold">46 290 ₽</p>
+                                </div>
+
+                                <button
+                                    type="button"
+                                    data-open-request="Midea Primary MSAG3-07HRN8"
+                                    class="rounded-xl bg-brand-50 px-4 py-3 text-sm font-bold text-brand-700 transition hover:bg-brand-600 hover:text-white"
+                                >
+                                    Заказать
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- TOSHIBA -->
+                    <article class="product-card glass-card card-hover reveal flex flex-col rounded-3xl">
+                        <div class="product-image image-wrap">
+                            <img
+                                src="images/product-toshiba.jpg"
+                                alt="Кондиционер Toshiba"
+                                data-image
+                            >
+
+                            <div class="image-placeholder">
+                                <div>
+                                    <i data-lucide="image" class="mx-auto h-9 w-9 text-brand-500"></i>
+                                    <strong>images/product-toshiba.jpg</strong>
+                                    <span>Фото модели Toshiba</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-1 flex-col p-6">
+                            <p class="font-mono text-[10px] uppercase tracking-[0.16em] text-brand-600">
+                                TOSHIBA / INVERTER
+                            </p>
+
+                            <h3 class="mt-3 text-xl font-extrabold">
+                                Toshiba Inverter
+                            </h3>
+
+                            <ul class="mt-5 space-y-2 text-sm text-slate-500">
+                                <li class="flex gap-2">
+                                    <i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-emerald-500"></i>
+                                    Инверторное управление
+                                </li>
+                                <li class="flex gap-2">
+                                    <i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-emerald-500"></i>
+                                    Тихий режим работы
+                                </li>
+                            </ul>
+
+                            <div class="mt-auto flex items-end justify-between gap-4 pt-7">
+                                <div>
+                                    <p class="text-xs text-slate-400">Стоимость от</p>
+                                    <p class="mt-1 font-mono text-xl font-semibold">26 500 ₽</p>
+                                </div>
+
+                                <button
+                                    type="button"
+                                    data-open-request="Кондиционер Toshiba"
+                                    class="rounded-xl bg-brand-50 px-4 py-3 text-sm font-bold text-brand-700 transition hover:bg-brand-600 hover:text-white"
+                                >
+                                    Заказать
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- DAICHI -->
+                    <article class="product-card glass-card card-hover reveal flex flex-col rounded-3xl">
+                        <div class="product-image image-wrap">
+                            <img
+                                src="images/product-daichi.jpg"
+                                alt="Daichi EVEREST DA35EVQ1"
+                                data-image
+                            >
+
+                            <div class="image-placeholder">
+                                <div>
+                                    <i data-lucide="image" class="mx-auto h-9 w-9 text-brand-500"></i>
+                                    <strong>images/product-daichi.jpg</strong>
+                                    <span>Фото Daichi EVEREST</span>
+                                </div>
+                            </div>
+
+                            <span class="absolute left-4 top-4 z-10 rounded-full bg-slate-900 px-3 py-1.5 text-xs font-bold text-white">
+                                Premium
+                            </span>
+                        </div>
+
+                        <div class="flex flex-1 flex-col p-6">
+                            <p class="font-mono text-[10px] uppercase tracking-[0.16em] text-brand-600">
+                                DAICHI / EVEREST
+                            </p>
+
+                            <h3 class="mt-3 text-xl font-extrabold">
+                                Daichi EVEREST DA35EVQ1
+                            </h3>
+
+                            <ul class="mt-5 space-y-2 text-sm text-slate-500">
+                                <li class="flex gap-2">
+                                    <i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-emerald-500"></i>
+                                    Автоматический режим
+                                </li>
+                                <li class="flex gap-2">
+                                    <i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-emerald-500"></i>
+                                    Равномерное охлаждение
+                                </li>
+                            </ul>
+
+                            <div class="mt-auto flex items-end justify-between gap-4 pt-7">
+                                <div>
+                                    <p class="text-xs text-slate-400">Стоимость</p>
+                                    <p class="mt-1 font-mono text-xl font-semibold">58 790 ₽</p>
+                                </div>
+
+                                <button
+                                    type="button"
+                                    data-open-request="Daichi EVEREST DA35EVQ1"
+                                    class="rounded-xl bg-brand-50 px-4 py-3 text-sm font-bold text-brand-700 transition hover:bg-brand-600 hover:text-white"
+                                >
+                                    Заказать
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- CENTEK -->
+                    <article class="product-card glass-card card-hover reveal flex flex-col rounded-3xl">
+                        <div class="product-image image-wrap">
+                            <img
+                                src="images/product-centek.jpg"
+                                alt="CENTEK CT-65F09"
+                                data-image
+                            >
+
+                            <div class="image-placeholder">
+                                <div>
+                                    <i data-lucide="image" class="mx-auto h-9 w-9 text-brand-500"></i>
+                                    <strong>images/product-centek.jpg</strong>
+                                    <span>Фото CENTEK CT-65F09</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-1 flex-col p-6">
+                            <p class="font-mono text-[10px] uppercase tracking-[0.16em] text-brand-600">
+                                CENTEK / PERFORMANCE
+                            </p>
+
+                            <h3 class="mt-3 text-xl font-extrabold">
+                                CENTEK CT-65F09
+                            </h3>
+
+                            <ul class="mt-5 space-y-2 text-sm text-slate-500">
+                                <li class="flex gap-2">
+                                    <i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-emerald-500"></i>
+                                    Повышенная производительность
+                                </li>
+                                <li class="flex gap-2">
+                                    <i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-emerald-500"></i>
+                                    Режим охлаждения и обогрева
+                                </li>
+                            </ul>
+
+                            <div class="mt-auto flex items-end justify-between gap-4 pt-7">
+                                <div>
+                                    <p class="text-xs text-slate-400">Стоимость</p>
+                                    <p class="mt-1 font-mono text-xl font-semibold">44 604 ₽</p>
+                                </div>
+
+                                <button
+                                    type="button"
+                                    data-open-request="CENTEK CT-65F09"
+                                    class="rounded-xl bg-brand-50 px-4 py-3 text-sm font-bold text-brand-700 transition hover:bg-brand-600 hover:text-white"
+                                >
+                                    Заказать
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- DANTEX -->
+                    <article class="product-card glass-card card-hover reveal flex flex-col rounded-3xl">
+                        <div class="product-image image-wrap">
+                            <img
+                                src="images/product-dantex.jpg"
+                                alt="DANTEX CORSO R32"
+                                data-image
+                            >
+
+                            <div class="image-placeholder">
+                                <div>
+                                    <i data-lucide="image" class="mx-auto h-9 w-9 text-brand-500"></i>
+                                    <strong>images/product-dantex.jpg</strong>
+                                    <span>Фото DANTEX CORSO R32</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-1 flex-col p-6">
+                            <p class="font-mono text-[10px] uppercase tracking-[0.16em] text-brand-600">
+                                DANTEX / CORSO R32
+                            </p>
+
+                            <h3 class="mt-3 text-xl font-extrabold">
+                                DANTEX CORSO R32
+                            </h3>
+
+                            <ul class="mt-5 space-y-2 text-sm text-slate-500">
+                                <li class="flex gap-2">
+                                    <i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-emerald-500"></i>
+                                    Экономичное потребление энергии
+                                </li>
+                                <li class="flex gap-2">
+                                    <i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-emerald-500"></i>
+                                    Гарантия до 3 лет*
+                                </li>
+                            </ul>
+
+                            <div class="mt-auto flex items-end justify-between gap-4 pt-7">
+                                <div>
+                                    <p class="text-xs text-slate-400">Стоимость</p>
+                                    <p class="mt-1 font-mono text-xl font-semibold">41 290 ₽</p>
+                                </div>
+
+                                <button
+                                    type="button"
+                                    data-open-request="DANTEX CORSO R32"
+                                    class="rounded-xl bg-brand-50 px-4 py-3 text-sm font-bold text-brand-700 transition hover:bg-brand-600 hover:text-white"
+                                >
+                                    Заказать
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- LANZKRAFT -->
+                    <article class="product-card glass-card card-hover reveal flex flex-col rounded-3xl">
+                        <div class="product-image image-wrap">
+                            <img
+                                src="images/product-lanzkraft.jpg"
+                                alt="LANZKRAFT Simple LSWH"
+                                data-image
+                            >
+
+                            <div class="image-placeholder">
+                                <div>
+                                    <i data-lucide="image" class="mx-auto h-9 w-9 text-brand-500"></i>
+                                    <strong>images/product-lanzkraft.jpg</strong>
+                                    <span>Фото LANZKRAFT Simple LSWH</span>
+                                </div>
+                            </div>
+
+                            <span class="absolute left-4 top-4 z-10 rounded-full bg-amber-500 px-3 py-1.5 text-xs font-bold text-white">
+                                Топ-комплектация
+                            </span>
+                        </div>
+
+                        <div class="flex flex-1 flex-col p-6">
+                            <p class="font-mono text-[10px] uppercase tracking-[0.16em] text-brand-600">
+                                LANZKRAFT / SIMPLE
+                            </p>
+
+                            <h3 class="mt-3 text-xl font-extrabold">
+                                LANZKRAFT Simple LSWH
+                            </h3>
+
+                            <ul class="mt-5 space-y-2 text-sm text-slate-500">
+                                <li class="flex gap-2">
+                                    <i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-emerald-500"></i>
+                                    Функция самоочистки
+                                </li>
+                                <li class="flex gap-2">
+                                    <i data-lucide="check" class="mt-0.5 h-4 w-4 shrink-0 text-emerald-500"></i>
+                                    Антибактериальная функция
+                                </li>
+                            </ul>
+
+                            <div class="mt-auto flex items-end justify-between gap-4 pt-7">
+                                <div>
+                                    <p class="text-xs text-slate-400">Стоимость</p>
+                                    <p class="mt-1 font-mono text-xl font-semibold">115 990 ₽</p>
+                                </div>
+
+                                <button
+                                    type="button"
+                                    data-open-request="LANZKRAFT Simple LSWH"
+                                    class="rounded-xl bg-brand-50 px-4 py-3 text-sm font-bold text-brand-700 transition hover:bg-brand-600 hover:text-white"
+                                >
+                                    Заказать
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="reveal mt-10 text-center">
+                    <button
+                        type="button"
+                        data-open-request="Запрос полного каталога"
+                        class="secondary-button inline-flex items-center gap-3 rounded-2xl px-6 py-4 text-sm font-extrabold"
+                    >
+                        Смотреть весь каталог
+                        <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- УСЛУГИ -->
+        <section id="services" class="bg-white/55 px-5 py-24 sm:px-8 lg:py-32">
+            <div class="mx-auto max-w-7xl">
+                <div class="reveal max-w-3xl">
+                    <span class="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-brand-600">
+                        Услуги
+                    </span>
+
+                    <h2 class="mt-5 text-4xl font-extrabold tracking-[-0.055em] sm:text-6xl">
+                        Что мы делаем
+                    </h2>
+
+                    <p class="mt-6 max-w-2xl leading-7 text-slate-500">
+                        Сопровождаем клиента от выбора оборудования до установки,
+                        запуска и дальнейшего обслуживания.
+                    </p>
+                </div>
+
+                <div class="mt-14 grid gap-5 md:grid-cols-2">
+                    <article class="glass-card card-hover reveal rounded-3xl p-7 sm:p-9">
+                        <div class="flex items-start justify-between">
+                            <span class="grid h-14 w-14 place-items-center rounded-2xl bg-brand-50 text-brand-600">
+                                <i data-lucide="air-vent" class="h-7 w-7"></i>
+                            </span>
+
+                            <span class="font-mono text-xs text-slate-300">01</span>
+                        </div>
+
+                        <h3 class="mt-9 text-2xl font-extrabold">Продажа климатической техники</h3>
+
+                        <p class="mt-4 leading-7 text-slate-500">
+                            Настенные сплит-системы, инверторные кондиционеры,
+                            газовые котлы и оборудование разных ценовых категорий.
+                        </p>
+                    </article>
+
+                    <article class="glass-card card-hover reveal rounded-3xl p-7 sm:p-9">
+                        <div class="flex items-start justify-between">
+                            <span class="grid h-14 w-14 place-items-center rounded-2xl bg-emerald-50 text-emerald-600">
+                                <i data-lucide="drill" class="h-7 w-7"></i>
+                            </span>
+
+                            <span class="font-mono text-xs text-slate-300">02</span>
+                        </div>
+
+                        <h3 class="mt-9 text-2xl font-extrabold">Монтаж и установка</h3>
+
+                        <p class="mt-4 leading-7 text-slate-500">
+                            Подготовка места, установка внутренних и наружных блоков,
+                            подключение, проверка и запуск оборудования.
+                        </p>
+                    </article>
+
+                    <article class="glass-card card-hover reveal rounded-3xl p-7 sm:p-9">
+                        <div class="flex items-start justify-between">
+                            <span class="grid h-14 w-14 place-items-center rounded-2xl bg-amber-50 text-amber-600">
+                                <i data-lucide="settings" class="h-7 w-7"></i>
+                            </span>
+
+                            <span class="font-mono text-xs text-slate-300">03</span>
+                        </div>
+
+                        <h3 class="mt-9 text-2xl font-extrabold">Обслуживание и чистка</h3>
+
+                        <p class="mt-4 leading-7 text-slate-500">
+                            Сезонное техническое обслуживание, диагностика,
+                            очистка фильтров и подготовка техники к активной работе.
+                        </p>
+                    </article>
+
+                    <article class="glass-card card-hover reveal rounded-3xl p-7 sm:p-9">
+                        <div class="flex items-start justify-between">
+                            <span class="grid h-14 w-14 place-items-center rounded-2xl bg-violet-50 text-violet-600">
+                                <i data-lucide="messages-square" class="h-7 w-7"></i>
+                            </span>
+
+                            <span class="font-mono text-xs text-slate-300">04</span>
+                        </div>
+
+                        <h3 class="mt-9 text-2xl font-extrabold">Подбор и консультация</h3>
+
+                        <p class="mt-4 leading-7 text-slate-500">
+                            Учитываем площадь, назначение помещения, уровень шума,
+                            функции и бюджет — без переплаты за лишнюю мощность.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ПОЧЕМУ МЫ -->
+        <section id="about" class="px-5 py-24 sm:px-8 lg:py-32">
+            <div class="mx-auto max-w-7xl">
+                <div class="grid items-center gap-12 lg:grid-cols-[.9fr_1.1fr]">
+                    <div class="reveal">
+                        <!-- Добавьте images/team.jpg -->
+                        <div class="image-wrap min-h-[500px] rounded-[30px] shadow-soft">
+                            <img
+                                src="images/team.jpg"
+                                alt="Монтаж климатического оборудования"
+                                data-image
+                            >
+
+                            <div class="image-placeholder">
+                                <div>
+                                    <i data-lucide="image" class="mx-auto h-10 w-10 text-brand-500"></i>
+                                    <strong>images/team.jpg</strong>
+                                    <span>Добавьте фото монтажников за работой</span>
+                                </div>
+                            </div>
+
+                            <div class="absolute inset-x-5 bottom-5 z-10 rounded-2xl bg-slate-950/80 p-5 text-white backdrop-blur-xl">
+                                <p class="font-mono text-[10px] uppercase tracking-[0.16em] text-sky-300">
+                                    Гарант Климат
+                                </p>
+
+                                <p class="mt-2 text-lg font-extrabold">
+                                    Оборудование и монтаж в одном месте
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="reveal">
+                            <span class="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-brand-600">
+                                Почему мы
+                            </span>
+
+                            <h2 class="mt-5 text-4xl font-extrabold leading-tight tracking-[-0.055em] sm:text-6xl">
+                                Почему выбирают
+                                <span class="gradient-text">Гарант Климат</span>
+                            </h2>
+                        </div>
+
+                        <div class="mt-10 grid gap-4 sm:grid-cols-2">
+                            <div class="reveal rounded-2xl border border-slate-200 bg-white p-5">
+                                <i data-lucide="award" class="h-5 w-5 text-brand-600"></i>
+                                <p class="mt-4 font-extrabold">Популярные бренды</p>
+                                <p class="mt-2 text-sm leading-6 text-slate-500">
+                                    Midea, Toshiba, Daichi, DANTEX, CENTEK и LANZKRAFT.
+                                </p>
+                            </div>
+
+                            <div class="reveal rounded-2xl border border-slate-200 bg-white p-5">
+                                <i data-lucide="messages-square" class="h-5 w-5 text-brand-600"></i>
+                                <p class="mt-4 font-extrabold">336 отзывов</p>
+                                <p class="mt-2 text-sm leading-6 text-slate-500">
+                                    Большая база обратной связи на Яндекс Картах.
+                                </p>
+                            </div>
+
+                            <div class="reveal rounded-2xl border border-slate-200 bg-white p-5">
+                                <i data-lucide="star" class="h-5 w-5 fill-amber-400 text-amber-400"></i>
+                                <p class="mt-4 font-extrabold">Рейтинг 5.0</p>
+                                <p class="mt-2 text-sm leading-6 text-slate-500">
+                                    Высокая оценка пользователей и знак «Хорошее место».
+                                </p>
+                            </div>
+
+                            <div class="reveal rounded-2xl border border-slate-200 bg-white p-5">
+                                <i data-lucide="users" class="h-5 w-5 text-brand-600"></i>
+                                <p class="mt-4 font-extrabold">Монтажные специалисты</p>
+                                <p class="mt-2 text-sm leading-6 text-slate-500">
+                                    Установка, подключение и проверка оборудования.
+                                </p>
+                            </div>
+
+                            <div class="reveal rounded-2xl border border-slate-200 bg-white p-5">
+                                <i data-lucide="wallet-cards" class="h-5 w-5 text-brand-600"></i>
+                                <p class="mt-4 font-extrabold">Удобная оплата*</p>
+                                <p class="mt-2 text-sm leading-6 text-slate-500">
+                                    Добавьте подтверждённые условия рассрочки и оплаты.
+                                </p>
+                            </div>
+
+                            <div class="reveal rounded-2xl border border-slate-200 bg-white p-5">
+                                <i data-lucide="shield-check" class="h-5 w-5 text-brand-600"></i>
+                                <p class="mt-4 font-extrabold">Гарантия*</p>
+                                <p class="mt-2 text-sm leading-6 text-slate-500">
+                                    Укажите реальные сроки на оборудование и работы.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- КАЛЬКУЛЯТОР -->
+        <section id="calculator" class="bg-brand-900 px-5 py-24 text-white sm:px-8 lg:py-32">
+            <div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[.82fr_1.18fr] lg:items-center">
+                <div class="reveal">
+                    <span class="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-sky-300">
+                        Бесплатный подбор
+                    </span>
+
+                    <h2 class="mt-5 text-4xl font-extrabold leading-tight tracking-[-0.055em] sm:text-6xl">
+                        Подберём кондиционер под ваше помещение
+                    </h2>
+
+                    <p class="mt-6 max-w-xl leading-8 text-sky-100/70">
+                        Укажите основные параметры — специалист подготовит подходящие
+                        варианты по мощности, функциям и бюджету.
+                    </p>
+
+                    <div class="mt-9 space-y-4 text-sm text-sky-100/80">
+                        <p class="flex items-center gap-3">
+                            <i data-lucide="check-circle-2" class="h-5 w-5 text-sky-300"></i>
+                            Без переплаты за лишнюю мощность
+                        </p>
+
+                        <p class="flex items-center gap-3">
+                            <i data-lucide="check-circle-2" class="h-5 w-5 text-sky-300"></i>
+                            Несколько вариантов под разный бюджет
+                        </p>
+
+                        <p class="flex items-center gap-3">
+                            <i data-lucide="check-circle-2" class="h-5 w-5 text-sky-300"></i>
+                            Можно сразу рассчитать установку
+                        </p>
+                    </div>
+                </div>
+
+                <form
+                    id="selectionForm"
+                    class="reveal rounded-[28px] bg-white p-6 text-slate-900 shadow-2xl shadow-slate-950/20 sm:p-8"
+                >
+                    <div class="grid gap-5 sm:grid-cols-2">
+                        <div>
+                            <label for="area" class="mb-2 block text-sm font-bold">
+                                Площадь помещения
+                            </label>
+
+                            <div class="relative">
+                                <input
+                                    id="area"
+                                    name="area"
+                                    type="number"
+                                    min="1"
+                                    max="1000"
+                                    required
+                                    class="field rounded-xl px-4 py-4 pr-14"
+                                    placeholder="Например, 25"
+                                >
+
+                                <span class="absolute right-4 top-1/2 -translate-y-1/2 text-sm text-slate-400">
+                                    м²
+                                </span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="roomType" class="mb-2 block text-sm font-bold">
+                                Тип помещения
+                            </label>
+
+                            <select
+                                id="roomType"
+                                name="roomType"
+                                required
+                                class="field rounded-xl px-4 py-4"
+                            >
+                                <option value="">Выберите вариант</option>
+                                <option value="Квартира">Квартира</option>
+                                <option value="Частный дом">Частный дом</option>
+                                <option value="Офис">Офис</option>
+                                <option value="Магазин">Магазин</option>
+                                <option value="Другое">Другое</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="budget" class="mb-2 block text-sm font-bold">
+                                Планируемый бюджет
+                            </label>
+
+                            <select
+                                id="budget"
+                                name="budget"
+                                required
+                                class="field rounded-xl px-4 py-4"
+                            >
+                                <option value="">Выберите бюджет</option>
+                                <option value="До 30 000 ₽">До 30 000 ₽</option>
+                                <option value="30 000–50 000 ₽">30 000–50 000 ₽</option>
+                                <option value="50 000–80 000 ₽">50 000–80 000 ₽</option>
+                                <option value="От 80 000 ₽">От 80 000 ₽</option>
+                                <option value="Нужна консультация">Нужна консультация</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="customerName" class="mb-2 block text-sm font-bold">
+                                Как к вам обращаться
+                            </label>
+
+                            <input
+                                id="customerName"
+                                name="customerName"
+                                type="text"
+                                required
+                                class="field rounded-xl px-4 py-4"
+                                placeholder="Ваше имя"
+                            >
+                        </div>
+                    </div>
+
+                    <div class="mt-5">
+                        <label for="contact" class="mb-2 block text-sm font-bold">
+                            Телефон или @username в Telegram
+                        </label>
+
+                        <input
+                            id="contact"
+                            name="contact"
+                            type="text"
+                            required
+                            class="field rounded-xl px-4 py-4"
+                            placeholder="+7 900 000-00-00 или @username"
+                        >
+                    </div>
+
+                    <button
+                        type="submit"
+                        class="primary-button mt-6 flex w-full items-center justify-center gap-3 rounded-xl px-6 py-4 font-extrabold"
+                    >
+                        Получить подборку
+                        <i data-lucide="send" class="h-5 w-5"></i>
+                    </button>
+
+                    <p class="mt-4 text-center text-xs leading-5 text-slate-400">
+                        Ответим в рабочее время. Перед публикацией замените ссылку Telegram в JavaScript.
+                    </p>
+                </form>
+            </div>
+        </section>
+
+        <!-- ОТЗЫВЫ -->
+        <section id="reviews" class="relative overflow-hidden px-5 py-24 sm:px-8 lg:py-32">
+            <div class="absolute inset-0 -z-10 opacity-[0.06]">
+                <img
+                    src="images/review-bg.jpg"
+                    alt=""
+                    class="h-full w-full object-cover"
+                >
+            </div>
+
+            <div class="mx-auto max-w-7xl">
+                <div class="reveal flex flex-col justify-between gap-7 lg:flex-row lg:items-end">
+                    <div>
+                        <span class="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-brand-600">
+                            Мнение клиентов
+                        </span>
+
+                        <h2 class="mt-5 text-4xl font-extrabold tracking-[-0.055em] sm:text-6xl">
+                            Что говорят клиенты
+                        </h2>
+                    </div>
+
+                    <div class="flex items-center gap-4 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm">
+                        <div>
+                            <div class="flex gap-1 text-amber-400">
+                                <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                                <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                                <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                                <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                                <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                            </div>
+
+                            <p class="mt-2 text-sm font-extrabold">5.0 · 336 отзывов</p>
+                        </div>
+
+                        <div class="h-10 w-px bg-slate-200"></div>
+
+                        <span class="text-xs font-bold text-slate-500">Яндекс Карты</span>
+                    </div>
+                </div>
+
+                <!--
+                    Не публикуйте выдуманные отзывы.
+                    Скопируйте ниже 3 реальных отзыва из карточки организации,
+                    сохранив имя и смысл цитаты.
+                -->
+                <div class="mt-14 grid gap-5 lg:grid-cols-3">
+                    <article class="glass-card card-hover reveal rounded-3xl p-7">
+                        <div class="flex gap-1 text-amber-400">
+                            <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                            <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                            <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                            <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                            <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                        </div>
+
+                        <blockquote class="mt-6 text-sm leading-7 text-slate-500">
+                            Добавьте сюда реальную цитату клиента о подборе оборудования,
+                            качестве консультации или ассортименте магазина.
+                        </blockquote>
+
+                        <div class="mt-7 border-t border-slate-200 pt-5">
+                            <p class="font-extrabold">Имя из Яндекс Карт</p>
+                            <p class="mt-1 text-xs text-slate-400">Реальный отзыв · дата</p>
+                        </div>
+                    </article>
+
+                    <article class="glass-card card-hover reveal rounded-3xl p-7">
+                        <div class="flex gap-1 text-amber-400">
+                            <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                            <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                            <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                            <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                            <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                        </div>
+
+                        <blockquote class="mt-6 text-sm leading-7 text-slate-500">
+                            Добавьте реальный отзыв о монтаже: соблюдении сроков,
+                            аккуратности специалистов и результате установки.
+                        </blockquote>
+
+                        <div class="mt-7 border-t border-slate-200 pt-5">
+                            <p class="font-extrabold">Имя из Яндекс Карт</p>
+                            <p class="mt-1 text-xs text-slate-400">Реальный отзыв · дата</p>
+                        </div>
+                    </article>
+
+                    <article class="glass-card card-hover reveal rounded-3xl p-7">
+                        <div class="flex gap-1 text-amber-400">
+                            <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                            <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                            <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                            <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                            <i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                        </div>
+
+                        <blockquote class="mt-6 text-sm leading-7 text-slate-500">
+                            Добавьте реальную цитату об обслуживании, чистке кондиционера
+                            или повторном обращении в магазин.
+                        </blockquote>
+
+                        <div class="mt-7 border-t border-slate-200 pt-5">
+                            <p class="font-extrabold">Имя из Яндекс Карт</p>
+                            <p class="mt-1 text-xs text-slate-400">Реальный отзыв · дата</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- КОНТАКТЫ -->
+        <section id="contacts" class="bg-white/60 px-5 py-24 sm:px-8 lg:py-32">
+            <div class="mx-auto max-w-7xl">
+                <div class="reveal max-w-3xl">
+                    <span class="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-brand-600">
+                        Контакты
+                    </span>
+
+                    <h2 class="mt-5 text-4xl font-extrabold tracking-[-0.055em] sm:text-6xl">
+                        Приезжайте в магазин
+                    </h2>
+
+                    <p class="mt-6 leading-7 text-slate-500">
+                        Посмотрите технику, сравните модели и получите консультацию специалиста.
+                    </p>
+                </div>
+
+                <div class="mt-14 grid gap-6 lg:grid-cols-[.82fr_1.18fr]">
+                    <div class="space-y-5">
+                        <div class="glass-card reveal rounded-3xl p-6 sm:p-8">
+                            <div class="flex items-start gap-4">
+                                <span class="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-brand-50 text-brand-600">
+                                    <i data-lucide="map-pin" class="h-6 w-6"></i>
+                                </span>
+
+                                <div>
+                                    <p class="font-mono text-[10px] uppercase tracking-[0.16em] text-slate-400">
+                                        Адрес
+                                    </p>
+
+                                    <p class="mt-3 text-xl font-extrabold">
+                                        Волжский, ул. Мира, 47А
+                                    </p>
+
+                                    <p class="mt-2 text-sm leading-6 text-slate-500">
+                                        1 этаж, вход со стороны дороги. Перед зданием есть парковка.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card reveal rounded-3xl p-6 sm:p-8">
+                            <div class="flex items-start gap-4">
+                                <span class="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-emerald-50 text-emerald-600">
+                                    <i data-lucide="phone" class="h-6 w-6"></i>
+                                </span>
+
+                                <div>
+                                    <p class="font-mono text-[10px] uppercase tracking-[0.16em] text-slate-400">
+                                        Горячая линия
+                                    </p>
+
+                                    <!-- ЗАМЕНИТЕ НЕПОЛНЫЙ НОМЕР -->
+                                    <a
+                                        href="tel:+7800250XXXX"
+                                        class="mt-3 block text-xl font-extrabold transition hover:text-brand-600"
+                                    >
+                                        8 (800) 250-XX-XX
+                                    </a>
+
+                                    <p class="mt-2 text-xs text-rose-500">
+                                        Перед публикацией укажите полный номер.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card reveal rounded-3xl p-6 sm:p-8">
+                            <div class="flex items-start gap-4">
+                                <span class="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-amber-50 text-amber-600">
+                                    <i data-lucide="clock-3" class="h-6 w-6"></i>
+                                </span>
+
+                                <div class="w-full">
+                                    <p class="font-mono text-[10px] uppercase tracking-[0.16em] text-slate-400">
+                                        Режим работы
+                                    </p>
+
+                                    <p class="mt-3 font-extrabold">
+                                        Уточните график в карточке организации
+                                    </p>
+
+                                    <p class="mt-2 text-sm leading-6 text-slate-500">
+                                        После проверки замените этот текст на точные часы работы.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="reveal grid grid-cols-2 gap-3">
+                            <!-- ЗАМЕНИТЕ ССЫЛКИ -->
+                            <a
+                                href="https://wa.me/78002500000"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="flex items-center justify-center gap-2 rounded-2xl bg-emerald-500 px-4 py-4 text-sm font-extrabold text-white transition hover:-translate-y-1 hover:bg-emerald-600"
+                            >
+                                <i data-lucide="message-circle" class="h-5 w-5"></i>
+                                WhatsApp
+                            </a>
+
+                            <a
+                                href="https://t.me/YOUR_USERNAME"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="flex items-center justify-center gap-2 rounded-2xl bg-sky-500 px-4 py-4 text-sm font-extrabold text-white transition hover:-translate-y-1 hover:bg-sky-600"
+                            >
+                                <i data-lucide="send" class="h-5 w-5"></i>
+                                Telegram
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="glass-card reveal overflow-hidden rounded-3xl">
+                        <!--
+                            Карта строится по поисковому запросу.
+                            Для точной метки лучше вставить iframe из карточки
+                            организации на Яндекс Картах.
+                        -->
+                        <iframe
+                            title="Гарант Климат на карте"
+                            src="https://yandex.ru/map-widget/v1/?mode=search&text=%D0%93%D0%B0%D1%80%D0%B0%D0%BD%D1%82%20%D0%9A%D0%BB%D0%B8%D0%BC%D0%B0%D1%82%2C%20%D0%92%D0%BE%D0%BB%D0%B6%D1%81%D0%BA%D0%B8%D0%B9%2C%20%D1%83%D0%BB.%20%D0%9C%D0%B8%D1%80%D0%B0%2C%2047%D0%90&z=16"
+                            width="100%"
+                            height="100%"
+                            frameborder="0"
+                            allowfullscreen
+                            style="display:block; min-height:620px; border:0;"
+                        ></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ФИНАЛЬНЫЙ CTA -->
+        <section class="px-5 pb-10 pt-20 sm:px-8 lg:pb-20">
+            <div class="reveal relative mx-auto max-w-7xl overflow-hidden rounded-[32px] bg-gradient-to-br from-brand-900 via-brand-800 to-brand-600 p-7 text-white shadow-2xl shadow-sky-900/20 sm:p-12 lg:p-16">
+                <div class="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-sky-300/20 blur-[90px]"></div>
+
+                <div class="relative flex flex-col justify-between gap-10 lg:flex-row lg:items-end">
+                    <div>
+                        <span class="font-mono text-xs uppercase tracking-[0.16em] text-sky-200">
+                            Нужна консультация?
+                        </span>
+
+                        <h2 class="mt-5 max-w-3xl text-4xl font-extrabold leading-tight tracking-[-0.055em] sm:text-6xl">
+                            Поможем выбрать технику без лишней переплаты
+                        </h2>
+
+                        <p class="mt-6 max-w-2xl leading-7 text-sky-100/75">
+                            Расскажите о помещении и пожеланиях — предложим несколько
+                            подходящих вариантов и рассчитаем установку.
+                        </p>
+                    </div>
+
+                    <div class="flex shrink-0 flex-col gap-3 sm:flex-row lg:flex-col">
+                        <a
+                            href="tel:+7800250XXXX"
+                            class="inline-flex items-center justify-center gap-3 rounded-2xl bg-white px-6 py-4 text-sm font-extrabold text-brand-900 transition hover:-translate-y-1"
+                        >
+                            <i data-lucide="phone" class="h-5 w-5"></i>
+                            Позвонить
+                        </a>
+
+                        <button
+                            type="button"
+                            data-open-request="Заявка из финального блока"
+                            class="inline-flex items-center justify-center gap-3 rounded-2xl border border-white/30 bg-white/10 px-6 py-4 text-sm font-extrabold text-white transition hover:-translate-y-1 hover:bg-white/20"
+                        >
+                            Оставить заявку
+                            <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="px-5 py-8 sm:px-8">
+        <div class="mx-auto flex max-w-7xl flex-col gap-6 border-t border-slate-200 pt-8 sm:flex-row sm:items-center sm:justify-between">
+            <div class="flex items-center gap-3">
+                <span class="grid h-10 w-10 place-items-center rounded-xl bg-brand-600 text-white">
+                    <i data-lucide="snowflake" class="h-5 w-5"></i>
+                </span>
+
+                <div>
+                    <p class="font-extrabold">Гарант Климат</p>
+                    <p class="mt-1 text-xs text-slate-400">
+                        Климатическая техника в Волжском
+                    </p>
+                </div>
+            </div>
+
+            <p class="text-sm text-slate-400">
+                © <span id="currentYear"></span> Гарант Климат
+            </p>
+
+            <div class="flex items-center gap-2">
+                <!-- ЗАМЕНИТЕ ССЫЛКИ НА РЕАЛЬНЫЕ -->
+                <a
+                    href="#"
+                    aria-label="ВКонтакте"
+                    class="grid h-10 w-10 place-items-center rounded-xl border border-slate-200 bg-white text-slate-500 transition hover:border-brand-300 hover:text-brand-600"
+                >
+                    <span class="text-xs font-extrabold">VK</span>
+                </a>
+
+                <a
+                    href="https://t.me/YOUR_USERNAME"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Telegram"
+                    class="grid h-10 w-10 place-items-center rounded-xl border border-slate-200 bg-white text-slate-500 transition hover:border-brand-300 hover:text-brand-600"
+                >
+                    <i data-lucide="send" class="h-4 w-4"></i>
+                </a>
+
+                <a
+                    href="#"
+                    aria-label="YouTube"
+                    class="grid h-10 w-10 place-items-center rounded-xl border border-slate-200 bg-white text-slate-500 transition hover:border-brand-300 hover:text-brand-600"
+                >
+                    <i data-lucide="youtube" class="h-4 w-4"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- МОДАЛЬНОЕ ОКНО ЗАЯВКИ -->
+    <div
+        id="requestModal"
+        class="fixed inset-0 z-[100] hidden items-center justify-center p-4"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+    >
+        <button
+            id="modalBackdrop"
+            type="button"
+            class="modal-backdrop absolute inset-0"
+            aria-label="Закрыть окно"
+        ></button>
+
+        <div class="relative z-10 max-h-[92vh] w-full max-w-lg overflow-y-auto rounded-[28px] bg-white p-6 shadow-2xl sm:p-8">
+            <div class="flex items-start justify-between gap-5">
+                <div>
+                    <p class="font-mono text-[10px] uppercase tracking-[0.16em] text-brand-600">
+                        Быстрая заявка
+                    </p>
+
+                    <h2 id="modalTitle" class="mt-3 text-2xl font-extrabold">
+                        Получить консультацию
+                    </h2>
+                </div>
+
+                <button
+                    id="closeModal"
+                    type="button"
+                    class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-slate-100 text-slate-600 transition hover:bg-slate-200"
+                    aria-label="Закрыть окно"
+                >
+                    <i data-lucide="x" class="h-5 w-5"></i>
+                </button>
+            </div>
+
+            <form id="requestForm" class="mt-7">
+                <input
+                    id="requestSubject"
+                    name="requestSubject"
+                    type="hidden"
+                    value="Консультация с сайта"
+                >
+
+                <div>
+                    <label for="requestName" class="mb-2 block text-sm font-bold">
+                        Ваше имя
+                    </label>
+
+                    <input
+                        id="requestName"
+                        name="requestName"
+                        type="text"
+                        required
+                        class="field rounded-xl px-4 py-4"
+                        placeholder="Как к вам обращаться"
+                    >
+                </div>
+
+                <div class="mt-5">
+                    <label for="requestContact" class="mb-2 block text-sm font-bold">
+                        Телефон или Telegram
+                    </label>
+
+                    <input
+                        id="requestContact"
+                        name="requestContact"
+                        type="text"
+                        required
+                        class="field rounded-xl px-4 py-4"
+                        placeholder="+7 900 000-00-00 или @username"
+                    >
+                </div>
+
+                <div class="mt-5">
+                    <label for="requestComment" class="mb-2 block text-sm font-bold">
+                        Комментарий
+                    </label>
+
+                    <textarea
+                        id="requestComment"
+                        name="requestComment"
+                        rows="4"
+                        class="field resize-y rounded-xl px-4 py-4"
+                        placeholder="Например: нужен кондиционер в комнату 25 м²"
+                    ></textarea>
+                </div>
+
+                <button
+                    type="submit"
+                    class="primary-button mt-6 flex w-full items-center justify-center gap-3 rounded-xl px-6 py-4 font-extrabold"
+                >
+                    Отправить в Telegram
+                    <i data-lucide="send" class="h-5 w-5"></i>
+                </button>
+
+                <p class="mt-4 text-center text-xs leading-5 text-slate-400">
+                    После нажатия откроется Telegram с подготовленным сообщением.
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- УВЕДОМЛЕНИЕ -->
+    <div
+        id="toast"
+        class="toast fixed bottom-5 left-1/2 z-[120] w-[calc(100%-2rem)] max-w-md -translate-x-1/2 rounded-2xl bg-slate-950 px-5 py-4 text-sm text-white shadow-2xl"
+        role="status"
+        aria-live="polite"
+    ></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            /* =================================================
+               КОНТАКТНЫЕ НАСТРОЙКИ
+
+               Замените YOUR_USERNAME на Telegram организации.
+               Указывать символ @ не нужно.
+            ================================================== */
+            const TELEGRAM_USERNAME = "YOUR_USERNAME";
+
+            lucide.createIcons();
+
+            document.getElementById("currentYear").textContent =
+                new Date().getFullYear();
+
+            /* =================================================
+               ЗАГРУЗКА ИЗОБРАЖЕНИЙ
+
+               Если файла нет, остаётся аккуратная подсказка
+               с названием необходимого изображения.
+            ================================================== */
+            document.querySelectorAll("img[data-image]").forEach((image) => {
+                const placeholder =
+                    image.parentElement.querySelector(".image-placeholder");
+
+                const showPlaceholder = () => {
+                    image.style.display = "none";
+
+                    if (placeholder) {
+                        placeholder.classList.remove("is-hidden");
+                    }
+                };
+
+                const hidePlaceholder = () => {
+                    image.style.display = "block";
+
+                    if (placeholder) {
+                        placeholder.classList.add("is-hidden");
+                    }
+                };
+
+                image.addEventListener("error", showPlaceholder);
+                image.addEventListener("load", hidePlaceholder);
+
+                if (image.complete) {
+                    image.naturalWidth > 0
+                        ? hidePlaceholder()
+                        : showPlaceholder();
+                }
+            });
+
+            /* =================================================
+               МОБИЛЬНОЕ МЕНЮ
+            ================================================== */
+            const menuButton = document.getElementById("menuButton");
+            const mobileMenu = document.getElementById("mobileMenu");
+            const mobileLinks = document.querySelectorAll(".mobile-link");
+
+            function setMenu(open) {
+                mobileMenu.classList.toggle("hidden", !open);
+                menuButton.setAttribute("aria-expanded", String(open));
+                menuButton.setAttribute(
+                    "aria-label",
+                    open ? "Закрыть меню" : "Открыть меню"
+                );
+
+                menuButton.innerHTML = open
+                    ? '<i data-lucide="x" class="h-5 w-5"></i>'
+                    : '<i data-lucide="menu" class="h-5 w-5"></i>';
+
+                document.body.classList.toggle("menu-open", open);
+                lucide.createIcons();
+            }
+
+            menuButton.addEventListener("click", () => {
+                const isOpen =
+                    menuButton.getAttribute("aria-expanded") === "true";
+
+                setMenu(!isOpen);
+            });
+
+            mobileLinks.forEach((link) => {
+                link.addEventListener("click", () => setMenu(false));
+            });
+
+            window.addEventListener("resize", () => {
+                if (window.innerWidth >= 1024) {
+                    setMenu(false);
+                }
+            });
+
+            /* =================================================
+               ПОЯВЛЕНИЕ ЭЛЕМЕНТОВ ПРИ ПРОКРУТКЕ
+            ================================================== */
+            const revealElements = document.querySelectorAll(".reveal");
+            const reduceMotion = window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
+            ).matches;
+
+            if (reduceMotion || !("IntersectionObserver" in window)) {
+                revealElements.forEach((element) => {
+                    element.classList.add("is-visible");
+                });
+            } else {
+                const observer = new IntersectionObserver(
+                    (entries, currentObserver) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add("is-visible");
+                                currentObserver.unobserve(entry.target);
+                            }
+                        });
+                    },
+                    {
+                        threshold: 0.1,
+                        rootMargin: "0px 0px -40px 0px"
+                    }
+                );
+
+                revealElements.forEach((element) => {
+                    observer.observe(element);
+                });
+            }
+
+            /* =================================================
+               МОДАЛЬНОЕ ОКНО
+            ================================================== */
+            const requestModal = document.getElementById("requestModal");
+            const closeModalButton = document.getElementById("closeModal");
+            const modalBackdrop = document.getElementById("modalBackdrop");
+            const requestSubject = document.getElementById("requestSubject");
+            const requestName = document.getElementById("requestName");
+
+            function openModal(subject) {
+                requestSubject.value = subject || "Консультация с сайта";
+                requestModal.classList.remove("hidden");
+                requestModal.classList.add("flex");
+                document.body.classList.add("modal-open");
+
+                window.setTimeout(() => {
+                    requestName.focus();
+                }, 100);
+            }
+
+            function closeModal() {
+                requestModal.classList.add("hidden");
+                requestModal.classList.remove("flex");
+                document.body.classList.remove("modal-open");
+            }
+
+            document.querySelectorAll("[data-open-request]").forEach((button) => {
+                button.addEventListener("click", () => {
+                    setMenu(false);
+                    openModal(button.dataset.openRequest);
+                });
+            });
+
+            closeModalButton.addEventListener("click", closeModal);
+            modalBackdrop.addEventListener("click", closeModal);
+
+            document.addEventListener("keydown", (event) => {
+                if (
+                    event.key === "Escape" &&
+                    !requestModal.classList.contains("hidden")
+                ) {
+                    closeModal();
+                }
+            });
+
+            /* =================================================
+               УВЕДОМЛЕНИЯ
+            ================================================== */
+            const toast = document.getElementById("toast");
+            let toastTimer;
+
+            function showToast(message) {
+                window.clearTimeout(toastTimer);
+                toast.textContent = message;
+                toast.classList.add("is-visible");
+
+                toastTimer = window.setTimeout(() => {
+                    toast.classList.remove("is-visible");
+                }, 4500);
+            }
+
+            /* =================================================
+               ОТКРЫТИЕ TELEGRAM
+
+               Браузер не может безопасно отправлять данные
+               в Telegram-бот без серверной части.
+
+               Эта реализация открывает диалог организации
+               с подготовленным сообщением.
+            ================================================== */
+            function openTelegram(message) {
+                if (
+                    !TELEGRAM_USERNAME ||
+                    TELEGRAM_USERNAME === "YOUR_USERNAME"
+                ) {
+                    navigator.clipboard
+                        ?.writeText(message)
+                        .catch(() => {});
+
+                    showToast(
+                        "Укажите Telegram организации в переменной TELEGRAM_USERNAME. Текст заявки скопирован."
+                    );
+
+                    return;
+                }
+
+                const cleanUsername =
+                    TELEGRAM_USERNAME.replace("@", "").trim();
+
+                const telegramUrl =
+                    `https://t.me/${cleanUsername}?text=${encodeURIComponent(message)}`;
+
+                window.open(telegramUrl, "_blank", "noopener,noreferrer");
+            }
+
+            /* =================================================
+               ФОРМА ПОДБОРА
+            ================================================== */
+            const selectionForm =
+                document.getElementById("selectionForm");
+
+            selectionForm.addEventListener("submit", (event) => {
+                event.preventDefault();
+
+                if (!selectionForm.reportValidity()) {
+                    return;
+                }
+
+                const area = document.getElementById("area").value.trim();
+                const roomType =
+                    document.getElementById("roomType").value;
+                const budget =
+                    document.getElementById("budget").value;
+                const customerName =
+                    document.getElementById("customerName").value.trim();
+                const contact =
+                    document.getElementById("contact").value.trim();
+
+                const message = [
+                    "Здравствуйте! Хочу подобрать кондиционер.",
+                    "",
+                    `Имя: ${customerName}`,
+                    `Площадь: ${area} м²`,
+                    `Помещение: ${roomType}`,
+                    `Бюджет: ${budget}`,
+                    `Контакт: ${contact}`
+                ].join("\n");
+
+                openTelegram(message);
+            });
+
+            /* =================================================
+               БЫСТРАЯ ЗАЯВКА
+            ================================================== */
+            const requestForm =
+                document.getElementById("requestForm");
+
+            requestForm.addEventListener("submit", (event) => {
+                event.preventDefault();
+
+                if (!requestForm.reportValidity()) {
+                    return;
+                }
+
+                const subject =
+                    requestSubject.value.trim();
+                const name =
+                    document.getElementById("requestName").value.trim();
+                const contact =
+                    document.getElementById("requestContact").value.trim();
+                const comment =
+                    document.getElementById("requestComment").value.trim();
+
+                const message = [
+                    "Здравствуйте! Хочу оставить заявку.",
+                    "",
+                    `Интересует: ${subject}`,
+                    `Имя: ${name}`,
+                    `Контакт: ${contact}`,
+                    comment ? `Комментарий: ${comment}` : ""
+                ]
+                    .filter(Boolean)
+                    .join("\n");
+
+                openTelegram(message);
+                closeModal();
+            });
+        });
+    </script>
+</body>
+</html>
